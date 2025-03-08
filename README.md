@@ -3,19 +3,30 @@ This repository holds base api response types for different languages to keep mi
 
 ## Usage
 While some parts of this package could be used by dependency management tools, .proto file cannot be imported this way.
-Using any part of this package as a git subrepo, however, can solve this issue.
+Using any part of this package as a git submodule, however, can solve this issue.
 
-### Subrepo
-To add this package as a subrepo to another git repository, run the following command:
-
-```bash
-git submodule add https://github.com/VasiliyTemniy/micro-std-response.git
-```
-
-To add only some specific part of this package, use a command like this:
+### Submodule
+To add this package as a submodule to another git repository, run the following command:
 
 ```bash
-git submodule add -b main -- https://github.com/VasiliyTemniy/micro-std-response.git proto
+git submodule add -b \<source_branch_name\> -- https://github.com/VasiliyTemniy/micro-std-response.git \<recepient_repo_path_to_submodule\>
 ```
 
-where 'main' is required branch name, 'proto' is the desired part of the package.
+To update the submodule, run the following command:
+
+```bash
+git submodule update --remote
+```
+
+### Subtree
+Another approach is to use git subtree:
+
+```bash
+git subtree add --prefix \<recepient_repo_path_to_submodule\> https://github.com/VasiliyTemniy/micro-std-response.git \<source_branch_name\>
+```
+
+To update the subtree, run the following command:
+
+```bash
+git subtree pull --prefix \<recepient_repo_path_to_submodule\> https://github.com/VasiliyTemniy/micro-std-response.git \<source_branch_name\>
+```
