@@ -9,13 +9,13 @@ Using any part of this package as a git subrepo, however, can solve this issue.
 To add this package as a subrepo to another git repository, run the following command:
 
 ```bash
-git submodule add https://github.com/your-username/micro-std-response.git
+git submodule add https://github.com/VasiliyTemniy/micro-std-response.git
 ```
 
 To add only some specific part of this package, use a command like this:
 
 ```bash
-git submodule add -b main -- https://github.com/your-username/micro-std-response.git proto
+git submodule add -b main -- https://github.com/VasiliyTemniy/micro-std-response.git proto
 ```
 
 where 'main' is required branch name, 'proto' is the desired part of the package.
