@@ -3,7 +3,7 @@ This repository holds base api response types for different languages to keep mi
 
 ## Usage
 While some parts of this package could be used by dependency management tools, .proto file cannot be imported this way.
-Using any part of this package as a git submodule, however, can solve this issue.
+Using this package as a git submodule, however, can solve this issue.
 
 ### Submodule
 To add this package as a submodule to another git repository, run the following command:
