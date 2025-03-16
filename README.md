@@ -15,7 +15,7 @@ git submodule add -b \<source_branch_name\> -- https://github.com/VasiliyTemniy/
 To update the submodule, run the following command:
 
 ```bash
-git submodule update --remote
+git submodule update --init --remote --merge --recursive
 ```
 
 ### Subtree
