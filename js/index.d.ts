@@ -1,17 +1,21 @@
 /**
  * Error interface for standardized server response
  * @interface IAPIResponseError
- * @property {string} id error ID to track logs
  * @property {number} code http status code
- * @property {string} name
+ * @property {string} id error ID
+ * @property {string} name error name
+ * @property {string} msid microservice instance ID
+ * @property {string} msname microservice name
  * @property {string} message
  * @property {string} description
  * @property {string} type
  */
 export interface IAPIResponseError {
-  id: string;
   code: number;
+  id: string;
   name: string;
+  msid: string;
+  msname: string;
   message: string;
   description: string;
   type: string;
@@ -20,21 +24,25 @@ export interface IAPIResponseError {
 /**
  * Standardized server response metadata interface
  * @interface IAPIResponseMeta
- * @property {Array<IError>} errors
  * @property {number} timestamp UNIX timestamp in milliseconds
+ * @property {string} msid microservice instance ID
+ * @property {string} msname microservice name
+ * @property {Array<IError>} errors
  */
 export interface IAPIResponseMeta {
-  errors: Array<IAPIResponseError> | null;
   timestamp: number;
+  msid: string;
+  msname: string;
+  errors: Array<IAPIResponseError> | null;
 }
 
 /**
  * Standardized server response interface
  * @interface IAPIResponse
- * @property {T} data
  * @property {IAPIResponseMeta} meta
+ * @property {T | null} data
  */
 export interface IAPIResponse<T = any>{
-  data: T | null;
   meta: IAPIResponseMeta;
+  data: T | null;
 }

@@ -3,21 +3,31 @@ syntax = "proto3";
 package api;
 
 message APIResponseError {
-  string id = 1;
-  int32 code = 2;
+  int32 code = 1;
+  // error id
+  string id = 2;
+  // error name
   string name = 3;
-  string message = 4;
-  string description = 5;
-  string type = 6;
+  // microservice instance id
+  string msid = 4;
+  // microservice name
+  string msname = 5;
+  string message = 6;
+  string description = 7;
+  string type = 8;
 }
 
 message APIResponseMeta {
-  repeated APIResponseError errors = 1;
-  int64 timestamp = 2;
+  int64 timestamp = 1;
+  // microservice instance id
+  string msid = 2;
+  // microservice name
+  string msname = 3;
+  repeated APIResponseError errors = 4;
 }
 
 // Extend APIResponseMeta with actual data message
 // message APIResponse {
-//   DataMessage data = 1;
-//   APIResponseMeta meta = 2;
+//   APIResponseMeta meta = 1;
+//   DataMessage data = 2;
 // }
