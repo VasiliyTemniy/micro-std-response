@@ -1,3 +1,11 @@
+type SafeyAny =
+  { [key: string]: SafeyAny } |
+  Array<SafeyAny> |
+  string |
+  number |
+  null |
+  undefined;
+
 /**
  * Error interface for standardized server response
  * @interface IAPIResponseError
@@ -33,7 +41,7 @@ export interface IAPIResponseMeta {
   timestamp: number;
   msid: string;
   msname: string;
-  errors: Array<IAPIResponseError> | null;
+  errors: IAPIResponseError[] | null;
 }
 
 /**
@@ -42,7 +50,7 @@ export interface IAPIResponseMeta {
  * @property {IAPIResponseMeta} meta
  * @property {T | null} data
  */
-export interface IAPIResponse<T = any>{
+export interface IAPIResponse<T = SafeyAny>{
   meta: IAPIResponseMeta;
   data: T | null;
 }
